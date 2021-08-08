@@ -1,0 +1,12 @@
+button {
+    border-radius: 5px;
+    background-color: #4C97FF;
+    padding: calc(2 * .25rem);
+    line-height: 1.5rem;
+    font-size: calc(3 * .25rem);
+    font-weight: bold;
+    color: white;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    border: none;
+}
