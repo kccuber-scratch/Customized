@@ -14,7 +14,7 @@ if (document.getElementById("swatches").value == "true") {
 window.location.href = "https://lankybox01.leahcimto.com/Customized/"
 }
 
-function save() {
+function apply() {
 if (document.getElementById("dark").value == "true") {
   document.cookie = "darkmode=true;path=/"
 }else{
