@@ -193,6 +193,13 @@ document.getElementsByClassName("color-picker_gradient-picker-row_2ZOSs")[0].sty
 }, 10)
 });
 
+document.getElementsByClassName("color-button_color-button_2-mXT")[1].addEventListener("click", function(){
+setTimeout(function(){
+document.getElementsByClassName("color-picker_gradient-picker-row_2ZOSs")[0].remove();
+document.getElementsByClassName("color-picker_divider_3Hq7P")[0].remove();
+}, 10)
+});
+
 function unselect() {
 document.getElementById('redselector').style.border = "none";
 document.getElementById('redselector2').style.border = "none";
