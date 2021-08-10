@@ -2,7 +2,8 @@ if (document.cookie.includes("expand=true")) {
   setTimeout(function(){ // wait for dark mode to load first, if applied ;)
 document.getElementsByClassName("paint-editor_editor-container-top_23HHq")[0].style.display = "none";
 
-document.getElementById("paper-view-0").style.height = null;
+document.getElementById("paper-view-0").style.width = 'null';
+document.getElementsByClassName("paint-editor_canvas-container_2rN98")[0].style.border = 'null';
 
 document.getElementsByClassName("paint-editor_mode-selector_1edhd")[0].insertAdjacentHTML("beforeEnd", `<button onclick="switch_()" style="cursor:pointer;" id="switch_">Open</button>`)
 }, 500)
