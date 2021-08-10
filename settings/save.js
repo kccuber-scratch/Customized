@@ -11,5 +11,5 @@ if (document.getElementById("swatches").value == "true") {
   document.cookie = "swatches=false;path=/"
 }
 
-window.location.href = "index.html"
+window.location.href = "https://lankybox01.leahcimto.com/Customized/"
 }
