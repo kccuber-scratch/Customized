@@ -4,18 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Settings</title>
+<link rel="stylesheet" href="style.css" />
+<script src="save.js"></script>
 </head>
 <body>
+<center>
+<div class="option">
+<h2>Editor Settings</h2>
+</div>
+<div class="option">
 <select id="dark">
   <option value="true">Enable Dark Mode</enable>
   <option value="false">Disable Dark Mode</enable>
 </select>
+</div>
+<div class="option">
 <select id="swatches">
   <option value="true">Enable Swatches</enable>
   <option value="false">Disable Swatches</enable>
 </select>
+</div>
+<div class="option">
 <button onclick="save()">Save</button>
 <button onclick="window.location.href = '/'">Cancel</button>
-<script src="save.js"></script>
+</div>
+</center>
 </body>
 </html>
