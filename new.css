@@ -10,9 +10,3 @@ button {
     -webkit-justify-content: center;
     border: none;
 }
-
-/* Fix fonts */
-@font-face {
-	font-family: "Sans Serif";
-	src: url("fonts/Noto Sans Medium.ttf");
-}
