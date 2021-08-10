@@ -1,3 +1,4 @@
+if (document.cookie.includes("swatches=true")) {
 function skin1() {
 unselect();
 document.getElementById('s1selector').style.border = "1px solid blue";
@@ -220,4 +221,5 @@ document.getElementById('s3selector').style.border = "none";
 document.getElementById('s4selector').style.border = "none";
 document.getElementById('s5selector').style.border = "none";
 document.getElementById('s6selector').style.border = "none";
+}
 }

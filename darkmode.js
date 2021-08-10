@@ -1,3 +1,4 @@
+if (document.cookie.includes("darkmode=true")) {
 window.onload = function() {
 document.body.style.backgroundColor = "#171717";
 document.body.style.color = "white";
@@ -11,3 +12,4 @@ for(var i = 0; i < els.length; i++)
   els[i].style.filter = "brightness(5)";
 }
 }, 500)
+}
