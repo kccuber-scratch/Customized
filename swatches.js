@@ -1,11 +1,102 @@
 if (document.cookie.includes("swatches=true")) {
+
+function eyedrop1() {
+let element = document.getElementsByClassName("slider_handle_2M_mA")[0];
+
+const mouseDownEvent = new MouseEvent('mousedown', {
+  clientX: element.getBoundingClientRect().left,
+  clientY: element.getBoundingClientRect().top,
+  bubbles: true,
+  cancelable: true
+});
+
+const mouseMoveEvent = new MouseEvent('mousemove', {
+  clientX: element.getBoundingClientRect().left + 1,
+  clientY: element.getBoundingClientRect().top,
+  bubbles: true,
+  cancelable: true
+});
+
+const mouseUpEvent = new MouseEvent('mouseup', {
+  bubbles: true,
+  cancelable: true
+});
+
+// Simulate the mouse moving
+element.dispatchEvent(mouseDownEvent);
+element.dispatchEvent(mouseMoveEvent);
+element.dispatchEvent(mouseUpEvent);
+}
+
+function eyedrop2() {
+let element = document.getElementsByClassName("slider_handle_2M_mA")[1];
+
+const mouseDownEvent = new MouseEvent('mousedown', {
+  clientX: element.getBoundingClientRect().left,
+  clientY: element.getBoundingClientRect().top,
+  bubbles: true,
+  cancelable: true
+});
+
+const mouseMoveEvent = new MouseEvent('mousemove', {
+  clientX: element.getBoundingClientRect().left + 1,
+  clientY: element.getBoundingClientRect().top,
+  bubbles: true,
+  cancelable: true
+});
+
+const mouseUpEvent = new MouseEvent('mouseup', {
+  bubbles: true,
+  cancelable: true
+});
+
+// Simulate the mouse moving
+element.dispatchEvent(mouseDownEvent);
+element.dispatchEvent(mouseMoveEvent);
+element.dispatchEvent(mouseUpEvent);
+}
+
+function eyedrop3() {
+let element = document.getElementsByClassName("slider_handle_2M_mA")[2];
+
+const mouseDownEvent = new MouseEvent('mousedown', {
+  clientX: element.getBoundingClientRect().left,
+  clientY: element.getBoundingClientRect().top,
+  bubbles: true,
+  cancelable: true
+});
+
+const mouseMoveEvent = new MouseEvent('mousemove', {
+  clientX: element.getBoundingClientRect().left + 1,
+  clientY: element.getBoundingClientRect().top,
+  bubbles: true,
+  cancelable: true
+});
+
+const mouseUpEvent = new MouseEvent('mouseup', {
+  bubbles: true,
+  cancelable: true
+});
+
+// Simulate the mouse moving
+element.dispatchEvent(mouseDownEvent);
+element.dispatchEvent(mouseMoveEvent);
+element.dispatchEvent(mouseUpEvent);
+}
+
+function triggerEyeDropper() {
+eyedrop1();
+eyedrop2();
+eyedrop3();
+}
+
 function skin1() {
 unselect();
 document.getElementById('s1selector').style.border = "1px solid blue";
 document.getElementsByClassName("slider_handle_2M_mA")[0].style.left = "8px"
 document.getElementsByClassName("slider_handle_2M_mA")[1].style.left = "84px"
 document.getElementsByClassName("slider_handle_2M_mA")[2].style.left = "30px"
-document.getElementsByClassName("color-button_color-button-swatch_6Xhs3")[0].style.background = "#422a00"
+triggerEyeDropper()
 }
 
 function skin2() {
@@ -14,7 +105,7 @@ document.getElementById('s2selector').style.border = "1px solid blue";
 document.getElementsByClassName("slider_handle_2M_mA")[0].style.left = "1px"
 document.getElementsByClassName("slider_handle_2M_mA")[1].style.left = "44px"
 document.getElementsByClassName("slider_handle_2M_mA")[2].style.left = "39px"
-document.getElementsByClassName("color-button_color-button-swatch_6Xhs3")[0].style.background = "#4f3c1a"
+triggerEyeDropper()
 }
 
 function skin3() {
@@ -23,7 +114,7 @@ document.getElementById('s3selector').style.border = "1px solid blue";
 document.getElementsByClassName("slider_handle_2M_mA")[0].style.left = "6px"
 document.getElementsByClassName("slider_handle_2M_mA")[1].style.left = "37px"
 document.getElementsByClassName("slider_handle_2M_mA")[2].style.left = "50px"
-document.getElementsByClassName("color-button_color-button-swatch_6Xhs3")[0].style.background = "#7a6540"
+triggerEyeDropper()
 }
 
 function skin4() {
@@ -32,7 +123,7 @@ document.getElementById('s4selector').style.border = "1px solid blue";
 document.getElementsByClassName("slider_handle_2M_mA")[0].style.left = "14px"
 document.getElementsByClassName("slider_handle_2M_mA")[1].style.left = "47px"
 document.getElementsByClassName("slider_handle_2M_mA")[2].style.left = "102px"
-document.getElementsByClassName("color-button_color-button-swatch_6Xhs3")[0].style.background = "#d6ba87"
+triggerEyeDropper()
 }
 
 function skin5() {
@@ -41,7 +132,7 @@ document.getElementById('s5selector').style.border = "1px solid blue";
 document.getElementsByClassName("slider_handle_2M_mA")[0].style.left = "12px"
 document.getElementsByClassName("slider_handle_2M_mA")[1].style.left = "35px"
 document.getElementsByClassName("slider_handle_2M_mA")[2].style.left = "114px"
-document.getElementsByClassName("color-button_color-button-swatch_6Xhs3")[0].style.background = "#f5d9a6"
+triggerEyeDropper()
 }
 
 function skin6() {
@@ -50,7 +141,7 @@ document.getElementById('s6selector').style.border = "1px solid blue";
 document.getElementsByClassName("slider_handle_2M_mA")[0].style.left = "13px"
 document.getElementsByClassName("slider_handle_2M_mA")[1].style.left = "24px"
 document.getElementsByClassName("slider_handle_2M_mA")[2].style.left = "124px"
-document.getElementsByClassName("color-button_color-button-swatch_6Xhs3")[0].style.background = "#ffe8bd"
+triggerEyeDropper()
 }
 
 function grey1() {
@@ -59,7 +150,7 @@ document.getElementById('1selector').style.border = "1px solid blue";
 document.getElementsByClassName("slider_handle_2M_mA")[0].style.left = "0px"
 document.getElementsByClassName("slider_handle_2M_mA")[1].style.left = "0px"
 document.getElementsByClassName("slider_handle_2M_mA")[2].style.left = "114px"
-document.getElementsByClassName("color-button_color-button-swatch_6Xhs3")[0].style.background = "#f0f0f0"
+triggerEyeDropper()
 }
 
 function grey2() {
@@ -68,7 +159,7 @@ document.getElementById('2selector').style.border = "1px solid blue";
 document.getElementsByClassName("slider_handle_2M_mA")[0].style.left = "0px"
 document.getElementsByClassName("slider_handle_2M_mA")[1].style.left = "0px"
 document.getElementsByClassName("slider_handle_2M_mA")[2].style.left = "107px"
-document.getElementsByClassName("color-button_color-button-swatch_6Xhs3")[0].style.background = "#d9d9d9"
+triggerEyeDropper()
 }
 
 function grey3() {
@@ -77,7 +168,7 @@ document.getElementById('3selector').style.border = "1px solid blue";
 document.getElementsByClassName("slider_handle_2M_mA")[0].style.left = "0px"
 document.getElementsByClassName("slider_handle_2M_mA")[1].style.left = "0px"
 document.getElementsByClassName("slider_handle_2M_mA")[2].style.left = "95px"
-document.getElementsByClassName("color-button_color-button-swatch_6Xhs3")[0].style.background = "#a8a8a8"
+triggerEyeDropper()
 }
 
 function grey4() {
@@ -86,7 +177,7 @@ document.getElementById('4selector').style.border = "1px solid blue";
 document.getElementsByClassName("slider_handle_2M_mA")[0].style.left = "0px"
 document.getElementsByClassName("slider_handle_2M_mA")[1].style.left = "0px"
 document.getElementsByClassName("slider_handle_2M_mA")[2].style.left = "73px"
-document.getElementsByClassName("color-button_color-button-swatch_6Xhs3")[0].style.background = "#757575"
+triggerEyeDropper()
 }
 
 function grey5() {
@@ -95,7 +186,7 @@ document.getElementById('5selector').style.border = "1px solid blue";
 document.getElementsByClassName("slider_handle_2M_mA")[0].style.left = "0px"
 document.getElementsByClassName("slider_handle_2M_mA")[1].style.left = "0px"
 document.getElementsByClassName("slider_handle_2M_mA")[2].style.left = "61px"
-document.getElementsByClassName("color-button_color-button-swatch_6Xhs3")[0].style.background = "#424242"
+triggerEyeDropper()
 }
 
 function grey6() {
@@ -104,7 +195,7 @@ document.getElementById('6selector').style.border = "1px solid blue";
 document.getElementsByClassName("slider_handle_2M_mA")[0].style.left = "0px"
 document.getElementsByClassName("slider_handle_2M_mA")[1].style.left = "0px"
 document.getElementsByClassName("slider_handle_2M_mA")[2].style.left = "13px"
-document.getElementsByClassName("color-button_color-button-swatch_6Xhs3")[0].style.background = "#1f1f1f"
+triggerEyeDropper()
 }
 
 function red() {
@@ -113,7 +204,7 @@ document.getElementById('redselector').style.border = "1px solid blue";
 document.getElementsByClassName("slider_handle_2M_mA")[0].style.left = "7px"
 document.getElementsByClassName("slider_handle_2M_mA")[1].style.left = "100px"
 document.getElementsByClassName("slider_handle_2M_mA")[2].style.left = "124px"
-document.getElementsByClassName("color-button_color-button-swatch_6Xhs3")[0].style.background = "rgb(255, 123, 56)"
+triggerEyeDropper()
 }
 
 function yellow() {
@@ -122,7 +213,7 @@ document.getElementById('yellowselector').style.border = "1px solid blue";
 document.getElementsByClassName("slider_handle_2M_mA")[0].style.left = "16px"
 document.getElementsByClassName("slider_handle_2M_mA")[1].style.left = "116px"
 document.getElementsByClassName("slider_handle_2M_mA")[2].style.left = "124px"
-document.getElementsByClassName("color-button_color-button-swatch_6Xhs3")[0].style.background = "rgb(255, 200, 12)"
+triggerEyeDropper()
 }
 
 function green() {
@@ -131,7 +222,7 @@ document.getElementById('greenselector').style.border = "1px solid blue";
 document.getElementsByClassName("slider_handle_2M_mA")[0].style.left = "40px"
 document.getElementsByClassName("slider_handle_2M_mA")[1].style.left = "112px"
 document.getElementsByClassName("slider_handle_2M_mA")[2].style.left = "118px"
-document.getElementsByClassName("color-button_color-button-swatch_6Xhs3")[0].style.background = "rgb(38, 243, 23)"
+triggerEyeDropper()
 }
 
 function blue() {
@@ -140,7 +231,7 @@ document.getElementById('blueselector').style.border = "1px solid blue";
 document.getElementsByClassName("slider_handle_2M_mA")[0].style.left = "72px"
 document.getElementsByClassName("slider_handle_2M_mA")[1].style.left = "96px"
 document.getElementsByClassName("slider_handle_2M_mA")[2].style.left = "124px"
-document.getElementsByClassName("color-button_color-button-swatch_6Xhs3")[0].style.background = "rgb(62, 161, 255)"
+triggerEyeDropper()
 }
 
 function pink() {
@@ -149,7 +240,7 @@ document.getElementById('pinkselector').style.border = "1px solid blue";
 document.getElementsByClassName("slider_handle_2M_mA")[0].style.left = "100px"
 document.getElementsByClassName("slider_handle_2M_mA")[1].style.left = "92px"
 document.getElementsByClassName("slider_handle_2M_mA")[2].style.left = "123px"
-document.getElementsByClassName("color-button_color-button-swatch_6Xhs3")[0].style.background = "rgb(223, 65, 253)"
+triggerEyeDropper()
 }
 
 function red2() {
@@ -158,7 +249,7 @@ document.getElementById('redselector2').style.border = "1px solid blue";
 document.getElementsByClassName("slider_handle_2M_mA")[0].style.left = "7px"
 document.getElementsByClassName("slider_handle_2M_mA")[1].style.left = "100px"
 document.getElementsByClassName("slider_handle_2M_mA")[2].style.left = "124px"
-document.getElementsByClassName("color-button_color-button-swatch_6Xhs3")[0].style.background = "rgb(255, 123, 56)"
+triggerEyeDropper()
 }
 
 let swatches = `
