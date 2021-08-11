@@ -1,7 +1,7 @@
-if (document.cookie.includes("swatches=true")) {
-
+if (document.cookie.includes("swatches=true") || new URL(window.location).searchParams.has("swatches") /* Debug for testing locally */) {
+	
 	//Function for dragging sliders
-	function dragSlider(num) {
+	let colorswatches_dragSlider = function(num) {
 		//Slider
 		let element = document.getElementsByClassName("slider_handle_2M_mA")[num];
 		
@@ -40,118 +40,143 @@ if (document.cookie.includes("swatches=true")) {
 	}
 
 	//Function for applying color changes
-	function applySliders() {
-		dragSlider(0);
-		dragSlider(1);
-		dragSlider(2);
+	let colorswatches_applySliders = function() {
+		colorswatches_dragSlider(0);
+		colorswatches_dragSlider(1);
+		colorswatches_dragSlider(2);
 	}
 
 	//Function for unselecting all swatches
-	function unselect() {
+	let colorswatches_unselect = function() {
 		document.querySelectorAll(".color-swatch.color-picker_active-swatch_2U6UP").forEach(element => element.classList.remove("color-picker_active-swatch_2U6UP"));
 	}
 
 	//Function for setting sliders to a color
-	function setSliders(c,s,b, swatch) {
+	let colorswatches_setSliders = function(c,s,b, swatch) {
 		document.getElementsByClassName("slider_handle_2M_mA")[0].style.left = c * 1.24 + "px";
 		document.getElementsByClassName("slider_handle_2M_mA")[1].style.left = s * 1.24 + "px";
 		document.getElementsByClassName("slider_handle_2M_mA")[2].style.left = b * 1.24 + "px";
-		applySliders();
+		colorswatches_applySliders();
 	}
 
 	//Function for adding a swatch
-	function addSwatch(color, saturation, brightness, bgcolor) {
+	let colorswatches_addSwatch = function(color, saturation, brightness) {
+		
+		//Function for clamping
+		let clamp = function(x,a,b) {return Math.max(a,Math.min(x, b))}
+		
+		//The swatch element
 		let swatch = document.createElement("span");
+		
+		//RGB colors for the swatch
+		let colors = HSVtoRGB(
+			clamp(color,0,100) / 100,
+			clamp(saturation,0,100) / 100,
+			clamp(brightness,0,100) / 100
+		);
 		
 		swatch.classList.add("color-swatch");
 		swatch.classList.add("color-picker_clickable_1qAhZ");
 		swatch.dataset.color = color;
 		swatch.dataset.saturation = saturation;
 		swatch.dataset.brightness = brightness;
-		swatch.style["background-color"] = bgcolor;
+		swatch.dataset.bgcolor = "rgb("  + colors.r + ", " + colors.g + ", " + colors.b + ")"
+		swatch.style["background-color"] = swatch.dataset.bgcolor;
 		swatch.onclick = function() {
-			setSliders(color, saturation, brightness, swatch);
+			colorswatches_setSliders(color, saturation, brightness, swatch);
 			swatch.classList.add("color-picker_active-swatch_2U6UP");
 		};
 		
-		swatchesDiv.appendChild(swatch);
+		colorswatches_swatchesContainer.appendChild(swatch);
 	}
 	//Function for adding a linebreak to the swatches
-	function addBr() {swatchesDiv.appendChild(document.createElement("br"))}
+	let colorswatches_addBr = function() {colorswatches_swatchesContainer.appendChild(document.createElement("br"))}
 
 	//Prepare variables
-	var swatchesContainer;
-	var swatchesDiv;
+	var colorswatches_swatchesContainer;
 
 	//Prepare style
-	var style = document.createElement("style");
-	style.textContent =  "#color-swatches-container { margin: 10px -30px; line-height: 0px;} .color-swatch { width: 18px; height: 20px; border-radius: 4px; display: inline-block; margin: 2.5px; border: solid 1px rgba(0, 0, 0, 0.25); } .color-swatch.color-picker_active-swatch_2U6UP { border: 1px solid #4C97FF !important; } .Popover-body { padding: 4px 10px; }";
+	let style = document.createElement("style");
+	style.textContent =  "#color-swatches-container { margin: 10px -30px; display: block; line-height: 0px;} .color-swatch { width: 18px; height: 20px; border-radius: 4px; display: inline-block; margin: 2.5px; border: solid 1px rgba(0, 0, 0, 0.25); } .color-swatch.color-picker_active-swatch_2U6UP { border: 1px solid #4C97FF !important; } .Popover-body { padding: 4px 10px; }";
 	document.head.appendChild(style);
 	
 	//Function for adding the gradient button events to the color picker
-	const addGradientPickerEvents = function(popoverbody) {
-		popoverbody.querySelectorAll(".color-picker_gradient-swatches-row_1laEb > div, .color-picker_gradient-swatches-row_1laEb > span").forEach(e => e.addEventListener("click", unselect));
+	let colorswatches_addGradientPickerEvents = function(popoverbody) {
+		popoverbody.querySelectorAll(".color-picker_gradient-swatches-row_1laEb > div, .color-picker_gradient-swatches-row_1laEb > span").forEach(e => e.addEventListener("click", colorswatches_unselect));
 	}
 	
 	//Function for creating a set of swatches
-	const createSwatches = function(popoverbody) {
+	let colorswatches_createSwatches = function(popoverbody) {
 		//No need to recreate it if it's already added
 		if (popoverbody.querySelector("#color-swatches-container")) return;
 		//Also this
 		if (!popoverbody.querySelector(".color-picker_row-header_23YDh")) return;
 		
 		//Swatch elements
-		swatchesContainer = document.createElement("center");
-		swatchesContainer.id = "color-swatches-container";
-		swatchesDiv = document.createElement("div");
-		swatchesContainer.appendChild(swatchesDiv);
+		colorswatches_swatchesContainer = document.createElement("center");
+		colorswatches_swatchesContainer.id = "color-swatches-container";
 		
 		//The actual swatches
 		//Rainbow colors
-		addSwatch(0, 100, 100, "#ff0000");
-		addSwatch(8, 81, 100, "#ff8d30");
-		addSwatch(14, 88, 100, "#ffda1f");
-		addSwatch(36, 67, 88, "#4ae05e");
-		addSwatch(55, 50, 100, "#80dbff");
-		addSwatch(63, 80, 100, "#3363ff");
-		addSwatch(72, 60, 100, "#9666ff");
+		colorswatches_addSwatch(0, 100, 100);
+		colorswatches_addSwatch(8, 81, 100);
+		colorswatches_addSwatch(14, 88, 100);
+		colorswatches_addSwatch(36, 67, 88);
+		colorswatches_addSwatch(55, 50, 100);
+		colorswatches_addSwatch(63, 80, 100);
+		colorswatches_addSwatch(72, 60, 100);
 		//Grays
-		addBr();
-		addSwatch(0, 0, 0, "#000000");
-		addSwatch(0, 0, 16, "#292929");
-		addSwatch(0, 0, 33, "#545454");
-		addSwatch(0, 0, 50, "#808080");
-		addSwatch(0, 0, 66, "#a8a8a8");
-		addSwatch(0, 0, 83, "#d4d4d4");
-		addSwatch(0, 0, 100, "#ffffff");
+		colorswatches_addBr();
+		colorswatches_addSwatch(0, 0, 0);
+		colorswatches_addSwatch(0, 0, 16);
+		colorswatches_addSwatch(0, 0, 33);
+		colorswatches_addSwatch(0, 0, 50);
+		colorswatches_addSwatch(0, 0, 66);
+		colorswatches_addSwatch(0, 0, 83);
+		colorswatches_addSwatch(0, 0, 100);
 		//Skin colors
-		addBr();
-		addSwatch(7, 69, 30, "#4d2e18");
-		addSwatch(7, 64, 42, "#6a4226");
-		addSwatch(7, 62, 51, "#825331");
-		addSwatch(8, 54, 71, "#b58453");
-		addSwatch(9, 43, 89, "#e3b581");
-		addSwatch(9, 36, 93, "#eec699");
-		addSwatch(9, 29, 99, "#fcdab3");
+		colorswatches_addBr();
+		colorswatches_addSwatch(7, 69, 30);
+		colorswatches_addSwatch(7, 64, 42);
+		colorswatches_addSwatch(7, 62, 51);
+		colorswatches_addSwatch(8, 54, 71);
+		colorswatches_addSwatch(9, 43, 89);
+		colorswatches_addSwatch(9, 36, 93);
+		colorswatches_addSwatch(9, 29, 99);
 		
 		//Element to insert swatches before
 		let swatchAfter = popoverbody.querySelector(".color-picker_row-header_23YDh").parentElement;
 		//Insert swatches
-		swatchAfter.parentElement.insertBefore(swatchesContainer, swatchAfter);
+		swatchAfter.parentElement.insertBefore(colorswatches_swatchesContainer, swatchAfter);
 		
 		//Unselect swatches when other ways to change color used
-		popoverbody.querySelectorAll(".slider_handle_2M_mA").forEach(e => e.addEventListener("mousedown", unselect));
-		popoverbody.querySelectorAll(".color-picker_clickable_1qAhZ:not(.color-swatch), .slider_container_2U0n6").forEach(e => e.addEventListener("click", unselect));
-		popoverbody.querySelectorAll(".color-picker_gradient-picker-row_2ZOSs > img").forEach(e => e.addEventListener("click", ()=>setTimeout(()=>addGradientPickerEvents(popoverbody), 50)));
+		popoverbody.querySelectorAll(".slider_handle_2M_mA").forEach(e => e.addEventListener("mousedown", colorswatches_unselect));
+		popoverbody.querySelectorAll(".color-picker_clickable_1qAhZ:not(.color-swatch), .slider_container_2U0n6").forEach(e => e.addEventListener("click", colorswatches_unselect));
+		popoverbody.querySelectorAll(".color-picker_gradient-picker-row_2ZOSs > img").forEach(
+			e => e.addEventListener("click",
+				() => setTimeout(
+					() => colorswatches_addGradientPickerEvents(popoverbody), 50
+				)
+			)
+		);
 	};
 
-	const createAllSwatches = function() {
+	let colorswatches_createAllSwatches = function() {
 		setTimeout(function() {
-			document.querySelectorAll(".Popover-body").forEach(element => createSwatches(element));
+			document.querySelectorAll(".Popover-body").forEach(element => colorswatches_createSwatches(element));
 		}, 10)
 	};
 
-	document.getElementsByClassName("color-button_color-button_2-mXT")[0].addEventListener("click", createAllSwatches);
-	document.getElementsByClassName("color-button_color-button_2-mXT")[1].addEventListener("click", createAllSwatches);
+	document.getElementsByClassName("color-button_color-button_2-mXT")[0].addEventListener("click", colorswatches_createAllSwatches);
+	document.getElementsByClassName("color-button_color-button_2-mXT")[1].addEventListener("click", colorswatches_createAllSwatches);
 
+}
+
+//Function for converting HSV to RGB, thanks stackoverflow (actually from gist.github.com/mjackson/5311256)
+//Slightly minified
+//Keeping this outside in case something else wants to use it, accepts HSV values from 0 to 1, not 0 to 100, so divide by 100
+function HSVtoRGB(h, s, v) {var r, g, b, i, f, p, q, t;
+	i = Math.floor(h * 6); f = h * 6 - i; p = v * (1 - s); q = v * (1 - f * s); t = v * (1 - (1 - f) * s);
+	switch (i % 6) { case 0: r = v, g = t, b = p; break; case 1: r = q, g = v, b = p; break; case 2: r = p, g = v, b = t; break; case 3: r = p, g = q, b = v; break; case 4: r = t, g = p, b = v; break; case 5: r = v, g = p, b = q; break;}
+	return { r: Math.round(r * 255), g: Math.round(g * 255), b: Math.round(b * 255)};
 }
