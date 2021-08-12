@@ -91,7 +91,13 @@ if (document.cookie.includes("swatches=true") || new URL(window.location).search
 	}
 	//Function for adding a linebreak to the swatches
 	let addBr = function() {swatchesContainer.appendChild(document.createElement("br"))}
-
+	//Function for inserting a separator before somewhere
+	let addSeparator = function(element) {
+		var sep = document.createElement("div");
+		sep.classList.add("color-picker_divider_3Hq7P");
+		element.parentElement.insertBefore(sep, element);
+	}
+	
 	//Prepare variables
 	var swatchesContainer;
 
@@ -100,9 +106,15 @@ if (document.cookie.includes("swatches=true") || new URL(window.location).search
 	style.textContent =  "#color-swatches-container { margin: 10px -30px; display: block; line-height: 0px;} .color-swatch { width: 18px; height: 18px; border-radius: 4px; display: inline-block; margin: 2.5px; border: solid 1px rgba(0, 0, 0, 0.25); } .color-swatch.color-picker_active-swatch_2U6UP { border: 1px solid #4C97FF !important; } .Popover-body { padding: 4px 10px; }";
 	document.head.appendChild(style);
 	
-	//Function for adding the gradient button events to the color picker
+	//Function for adding the gradient button events to the color picker and moving the separator
 	let addGradientPickerEvents = function(popoverbody) {
+		if (popoverbody.querySelectorAll(".color-picker_gradient-picker-row_2ZOSs").length < 2) return; //We don't need to do this if it isn't a gradient picker
+		//Add events
 		popoverbody.querySelectorAll(".color-picker_gradient-swatches-row_1laEb > div, .color-picker_gradient-swatches-row_1laEb > span").forEach(e => e.addEventListener("click", unselect));
+		
+		//Move separator
+		var firstSeparator = popoverbody.querySelectorAll(".color-picker_divider_3Hq7P")[0];
+		swatchesContainer.parentElement.insertBefore(firstSeparator, swatchesContainer);
 	}
 	
 	//Function for creating a set of swatches
@@ -148,6 +160,8 @@ if (document.cookie.includes("swatches=true") || new URL(window.location).search
 		let swatchAfter = popoverbody.querySelector(".color-picker_row-header_23YDh").parentElement;
 		//Insert swatches
 		swatchAfter.parentElement.insertBefore(swatchesContainer, swatchAfter);
+		//Insert separator
+		addSeparator(swatchAfter);
 		
 		//Unselect swatches when other ways to change color used
 		popoverbody.querySelectorAll(".slider_handle_2M_mA").forEach(e => e.addEventListener("mousedown", unselect));
@@ -155,7 +169,7 @@ if (document.cookie.includes("swatches=true") || new URL(window.location).search
 		popoverbody.querySelectorAll(".color-picker_gradient-picker-row_2ZOSs > img").forEach(
 			e => e.addEventListener("click",
 				() => setTimeout(
-					() => addGradientPickerEvents(popoverbody), 50
+					() => addGradientPickerEvents(popoverbody), 10
 				)
 			)
 		);
