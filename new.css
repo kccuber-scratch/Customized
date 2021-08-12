@@ -10,3 +10,7 @@ button {
     -webkit-justify-content: center;
     border: none;
 }
+
+.Popover {
+	z-index: 100;
+}
