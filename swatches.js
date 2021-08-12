@@ -97,7 +97,7 @@ if (document.cookie.includes("swatches=true") || new URL(window.location).search
 
 	//Prepare style
 	let style = document.createElement("style");
-	style.textContent =  "#color-swatches-container { margin: 10px -30px; display: block; line-height: 0px;} .color-swatch { width: 18px; height: 20px; border-radius: 4px; display: inline-block; margin: 2.5px; border: solid 1px rgba(0, 0, 0, 0.25); } .color-swatch.color-picker_active-swatch_2U6UP { border: 1px solid #4C97FF !important; } .Popover-body { padding: 4px 10px; }";
+	style.textContent =  "#color-swatches-container { margin: 10px -30px; display: block; line-height: 0px;} .color-swatch { width: 18px; height: 18px; border-radius: 4px; display: inline-block; margin: 2.5px; border: solid 1px rgba(0, 0, 0, 0.25); } .color-swatch.color-picker_active-swatch_2U6UP { border: 1px solid #4C97FF !important; } .Popover-body { padding: 4px 10px; }";
 	document.head.appendChild(style);
 	
 	//Function for adding the gradient button events to the color picker
