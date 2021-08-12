@@ -1,0 +1,25 @@
+body {
+  font-family: helvetica;
+  background-color: #4d97ff;
+  color: #fcfcfc;
+}
+
+.library-item_library-item_1DcMO:hover {
+    border-width: 3px;
+    border-color: #6ba9ff;
+}
+
+.library-item_library-item_1DcMO {
+    height: 50px;
+    width: 170px;
+    background: white;
+    border-width: 2px;
+    border-style: solid;
+    font-size: 35px;
+    padding: 20px;
+    border-color: hsla(0, 0%, 0%, 0.15);
+    border-radius: 0.5rem;    text-align: center;
+    cursor: pointer;
+    color: #575e75;
+    margin: 20px;
+}
