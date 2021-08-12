@@ -1,7 +1,7 @@
 if (document.cookie.includes("swatches=true") || new URL(window.location).searchParams.has("swatches") /* Debug for testing locally */) {
 	
 	//Function for dragging sliders
-	let colorswatches_dragSlider = function(num) {
+	let dragSlider = function(num) {
 		//Slider
 		let element = document.getElementsByClassName("slider_handle_2M_mA")[num];
 		
@@ -40,27 +40,27 @@ if (document.cookie.includes("swatches=true") || new URL(window.location).search
 	}
 
 	//Function for applying color changes
-	let colorswatches_applySliders = function() {
-		colorswatches_dragSlider(0);
-		colorswatches_dragSlider(1);
-		colorswatches_dragSlider(2);
+	let applySliders = function() {
+		dragSlider(0);
+		dragSlider(1);
+		dragSlider(2);
 	}
 
 	//Function for unselecting all swatches
-	let colorswatches_unselect = function() {
+	let unselect = function() {
 		document.querySelectorAll(".color-swatch.color-picker_active-swatch_2U6UP").forEach(element => element.classList.remove("color-picker_active-swatch_2U6UP"));
 	}
 
 	//Function for setting sliders to a color
-	let colorswatches_setSliders = function(c,s,b, swatch) {
+	let setSliders = function(c,s,b, swatch) {
 		document.getElementsByClassName("slider_handle_2M_mA")[0].style.left = c * 1.24 + "px";
 		document.getElementsByClassName("slider_handle_2M_mA")[1].style.left = s * 1.24 + "px";
 		document.getElementsByClassName("slider_handle_2M_mA")[2].style.left = b * 1.24 + "px";
-		colorswatches_applySliders();
+		applySliders();
 	}
 
 	//Function for adding a swatch
-	let colorswatches_addSwatch = function(color, saturation, brightness) {
+	let addSwatch = function(color, saturation, brightness) {
 		
 		//Function for clamping
 		let clamp = function(x,a,b) {return Math.max(a,Math.min(x, b))}
@@ -83,17 +83,17 @@ if (document.cookie.includes("swatches=true") || new URL(window.location).search
 		swatch.dataset.bgcolor = "rgb("  + colors.r + ", " + colors.g + ", " + colors.b + ")"
 		swatch.style["background-color"] = swatch.dataset.bgcolor;
 		swatch.onclick = function() {
-			colorswatches_setSliders(color, saturation, brightness, swatch);
+			setSliders(color, saturation, brightness, swatch);
 			swatch.classList.add("color-picker_active-swatch_2U6UP");
 		};
 		
-		colorswatches_swatchesContainer.appendChild(swatch);
+		swatchesContainer.appendChild(swatch);
 	}
 	//Function for adding a linebreak to the swatches
-	let colorswatches_addBr = function() {colorswatches_swatchesContainer.appendChild(document.createElement("br"))}
+	let addBr = function() {swatchesContainer.appendChild(document.createElement("br"))}
 
 	//Prepare variables
-	var colorswatches_swatchesContainer;
+	var swatchesContainer;
 
 	//Prepare style
 	let style = document.createElement("style");
@@ -101,74 +101,74 @@ if (document.cookie.includes("swatches=true") || new URL(window.location).search
 	document.head.appendChild(style);
 	
 	//Function for adding the gradient button events to the color picker
-	let colorswatches_addGradientPickerEvents = function(popoverbody) {
-		popoverbody.querySelectorAll(".color-picker_gradient-swatches-row_1laEb > div, .color-picker_gradient-swatches-row_1laEb > span").forEach(e => e.addEventListener("click", colorswatches_unselect));
+	let addGradientPickerEvents = function(popoverbody) {
+		popoverbody.querySelectorAll(".color-picker_gradient-swatches-row_1laEb > div, .color-picker_gradient-swatches-row_1laEb > span").forEach(e => e.addEventListener("click", unselect));
 	}
 	
 	//Function for creating a set of swatches
-	let colorswatches_createSwatches = function(popoverbody) {
+	let createSwatches = function(popoverbody) {
 		//No need to recreate it if it's already added
 		if (popoverbody.querySelector("#color-swatches-container")) return;
 		//Also this
 		if (!popoverbody.querySelector(".color-picker_row-header_23YDh")) return;
 		
 		//Swatch elements
-		colorswatches_swatchesContainer = document.createElement("center");
-		colorswatches_swatchesContainer.id = "color-swatches-container";
+		swatchesContainer = document.createElement("center");
+		swatchesContainer.id = "color-swatches-container";
 		
 		//The actual swatches
 		//Rainbow colors
-		colorswatches_addSwatch(0, 100, 100);
-		colorswatches_addSwatch(8, 81, 100);
-		colorswatches_addSwatch(14, 88, 100);
-		colorswatches_addSwatch(36, 67, 88);
-		colorswatches_addSwatch(55, 50, 100);
-		colorswatches_addSwatch(63, 80, 100);
-		colorswatches_addSwatch(72, 60, 100);
+		addSwatch(0, 100, 100);
+		addSwatch(8, 81, 100);
+		addSwatch(14, 88, 100);
+		addSwatch(36, 67, 88);
+		addSwatch(55, 50, 100);
+		addSwatch(63, 80, 100);
+		addSwatch(72, 60, 100);
 		//Grays
-		colorswatches_addBr();
-		colorswatches_addSwatch(0, 0, 0);
-		colorswatches_addSwatch(0, 0, 16);
-		colorswatches_addSwatch(0, 0, 33);
-		colorswatches_addSwatch(0, 0, 50);
-		colorswatches_addSwatch(0, 0, 66);
-		colorswatches_addSwatch(0, 0, 83);
-		colorswatches_addSwatch(0, 0, 100);
+		addBr();
+		addSwatch(0, 0, 0);
+		addSwatch(0, 0, 16);
+		addSwatch(0, 0, 33);
+		addSwatch(0, 0, 50);
+		addSwatch(0, 0, 66);
+		addSwatch(0, 0, 83);
+		addSwatch(0, 0, 100);
 		//Skin colors
-		colorswatches_addBr();
-		colorswatches_addSwatch(7, 69, 30);
-		colorswatches_addSwatch(7, 64, 42);
-		colorswatches_addSwatch(7, 62, 51);
-		colorswatches_addSwatch(8, 54, 71);
-		colorswatches_addSwatch(9, 43, 89);
-		colorswatches_addSwatch(9, 36, 93);
-		colorswatches_addSwatch(9, 29, 99);
+		addBr();
+		addSwatch(7, 69, 30);
+		addSwatch(7, 64, 42);
+		addSwatch(7, 62, 51);
+		addSwatch(8, 54, 71);
+		addSwatch(9, 43, 89);
+		addSwatch(9, 36, 93);
+		addSwatch(9, 29, 99);
 		
 		//Element to insert swatches before
 		let swatchAfter = popoverbody.querySelector(".color-picker_row-header_23YDh").parentElement;
 		//Insert swatches
-		swatchAfter.parentElement.insertBefore(colorswatches_swatchesContainer, swatchAfter);
+		swatchAfter.parentElement.insertBefore(swatchesContainer, swatchAfter);
 		
 		//Unselect swatches when other ways to change color used
-		popoverbody.querySelectorAll(".slider_handle_2M_mA").forEach(e => e.addEventListener("mousedown", colorswatches_unselect));
-		popoverbody.querySelectorAll(".color-picker_clickable_1qAhZ:not(.color-swatch), .slider_container_2U0n6").forEach(e => e.addEventListener("click", colorswatches_unselect));
+		popoverbody.querySelectorAll(".slider_handle_2M_mA").forEach(e => e.addEventListener("mousedown", unselect));
+		popoverbody.querySelectorAll(".color-picker_clickable_1qAhZ:not(.color-swatch), .slider_container_2U0n6").forEach(e => e.addEventListener("click", unselect));
 		popoverbody.querySelectorAll(".color-picker_gradient-picker-row_2ZOSs > img").forEach(
 			e => e.addEventListener("click",
 				() => setTimeout(
-					() => colorswatches_addGradientPickerEvents(popoverbody), 50
+					() => addGradientPickerEvents(popoverbody), 50
 				)
 			)
 		);
 	};
 
-	let colorswatches_createAllSwatches = function() {
+	let createAllSwatches = function() {
 		setTimeout(function() {
-			document.querySelectorAll(".Popover-body").forEach(element => colorswatches_createSwatches(element));
+			document.querySelectorAll(".Popover-body").forEach(element => createSwatches(element));
 		}, 10)
 	};
 
-	document.getElementsByClassName("color-button_color-button_2-mXT")[0].addEventListener("click", colorswatches_createAllSwatches);
-	document.getElementsByClassName("color-button_color-button_2-mXT")[1].addEventListener("click", colorswatches_createAllSwatches);
+	document.getElementsByClassName("color-button_color-button_2-mXT")[0].addEventListener("click", createAllSwatches);
+	document.getElementsByClassName("color-button_color-button_2-mXT")[1].addEventListener("click", createAllSwatches);
 
 }
 
