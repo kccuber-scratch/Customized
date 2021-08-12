@@ -1,21 +1,9 @@
 function change() {
-if (document.getElementById("dark").value == "true") {
-  document.cookie = "darkmode=true;expires=Fri, 31 Dec 9999 23:59:59 GMT;path=/"
-}else{
-  document.cookie = "darkmode=false;expires=Fri, 31 Dec 9999 23:59:59 GMT;path=/"
-}
+document.cookie = "darkmode=" + document.getElementById("dark").value + ";expires=Fri, 31 Dec 9999 23:59:59 GMT;path=/"
 
-if (document.getElementById("swatches").value == "true") {
-  document.cookie = "swatches=true;expires=Fri, 31 Dec 9999 23:59:59 GMT;path=/"
-}else{
-  document.cookie = "swatches=false;expires=Fri, 31 Dec 9999 23:59:59 GMT;path=/"
-}
+document.cookie = "swatches=" + document.getElementById("swatches").value + ";expires=Fri, 31 Dec 9999 23:59:59 GMT;path=/"
 
-if (document.getElementById("icons").value == "true") {
-  document.cookie = "icons=true;expires=Fri, 31 Dec 9999 23:59:59 GMT;path=/"
-}else{
-  document.cookie = "icons=false;expires=Fri, 31 Dec 9999 23:59:59 GMT;path=/"
-}
+document.cookie = "icons=" + document.getElementById("icons").value + ";expires=Fri, 31 Dec 9999 23:59:59 GMT;path=/"
 }
 
 function save() {
