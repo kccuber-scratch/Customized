@@ -106,16 +106,21 @@ if (document.cookie.includes("swatches=true") || new URL(window.location).search
 	style.textContent =  "#color-swatches-container { margin: 10px -30px; display: block; line-height: 0px;} .color-swatch { width: 18px; height: 18px; border-radius: 4px; display: inline-block; margin: 2.5px; border: solid 1px rgba(0, 0, 0, 0.25); } .color-swatch.color-picker_active-swatch_2U6UP { border: 1px solid #4C97FF !important; } .Popover-body { padding: 4px 10px; }";
 	document.head.appendChild(style);
 	
-	//Function for adding the gradient button events to the color picker and moving the separator
-	let addGradientPickerEvents = function(popoverbody) {
+	//Function for moving the first separator in the gradient picker to before the swatches
+	let moveSeparator = function(popoverbody) {
 		if (popoverbody.querySelectorAll(".color-picker_gradient-picker-row_2ZOSs").length < 2) return; //We don't need to do this if it isn't a gradient picker
-		//Add events
-		popoverbody.querySelectorAll(".color-picker_gradient-swatches-row_1laEb > div, .color-picker_gradient-swatches-row_1laEb > span").forEach(e => e.addEventListener("click", unselect));
 		
-		//Move separator
 		var firstSeparator = popoverbody.querySelectorAll(".color-picker_divider_3Hq7P")[0];
 		swatchesContainer.parentElement.insertBefore(firstSeparator, swatchesContainer);
 	}
+	//Function for adding the gradient button events to the color picker
+	let addGradientPickerEvents = function(popoverbody) {
+		if (popoverbody.querySelectorAll(".color-picker_gradient-picker-row_2ZOSs").length < 2) return; //We don't need to do this if it isn't a gradient picker
+		popoverbody.querySelectorAll(".color-picker_gradient-swatches-row_1laEb > div, .color-picker_gradient-swatches-row_1laEb > span").forEach(e => e.addEventListener("click", unselect));
+		
+		moveSeparator(popoverbody);
+	}
+	
 	
 	//Function for creating a set of swatches
 	let createSwatches = function(popoverbody) {
@@ -173,6 +178,9 @@ if (document.cookie.includes("swatches=true") || new URL(window.location).search
 				)
 			)
 		);
+		
+		//Move the separator if it's a gradient picker
+		moveSeparator(popoverbody);
 	};
 
 	let createAllSwatches = function() {
