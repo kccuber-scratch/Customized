@@ -1,42 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Settings</title>
-<link rel="stylesheet" href="style.css" />
-<script src="save.js"></script>
-<script src="darkmode.js"></script>
-</head>
-<body>
-<center>
-<div class="option">
-<h2>Editor Settings</h2>
-</div>
-<div class="option">
-<select id="dark">
-  <option value="true">Enable Dark Mode</enable>
-  <option value="false" selected>Disable Dark Mode</enable>
-</select>
-</div>
-<div class="option">
-<select id="swatches">
-  <option value="experimental">Enable Experimental Swatches</enable>
-  <option value="true">Enable Swatches</enable>
-  <option value="false" selected>Disable Swatches</enable>
-</select>
-</div>
-<div class="option">
-<select id="icons">
-  <option value="true">Enable Bigger Icons</enable>
-  <option value="false" selected>Disable Bigger Icons</enable>
-</select>
-</div>
-<div class="option">
-<button onclick="save()">Save</button>
-<button onclick="apply()">Apply</button>
-<button onclick="window.location.href = 'https://lankybox01.leahcimto.com/Customized/'">Cancel</button>
-</div>
-</center>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Settings</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<center>
+			<div class="option">
+				<h2>Editor Settings</h2>
+			</div>
+			<div class="option">
+				<select id="dark">
+				  <option value="true">Enable Dark Mode</enable>
+				  <option value="false" selected>Disable Dark Mode</enable>
+				</select>
+			</div>
+			<div class="option">
+				<select id="swatches">
+				  <option value="experimental">Enable Experimental Swatches</enable>
+				  <option value="true">Enable Swatches</enable>
+				  <option value="false" selected>Disable Swatches</enable>
+				</select>
+			</div>
+			<div class="option">
+				<select id="icons">
+				  <option value="true">Enable Bigger Icons</enable>
+				  <option value="false" selected>Disable Bigger Icons</enable>
+				</select>
+			</div>
+			<div class="option">
+				<button onclick="save()">Save</button>
+				<button onclick="apply()">Apply</button>
+				<button onclick="window.location.replace('../index.html')">Cancel</button>
+			</div>
+		</center>
+		<script src="save.js"></script>
+		<script src="darkmode.js"></script>	
+		<script src="set.js"></script>	
+	</body>
 </html>

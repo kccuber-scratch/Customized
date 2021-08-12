@@ -18,5 +18,5 @@ if (windowUrl.searchParams.has("lib")) {
 		svgString = costumeLibrary.blank;
 	}
 } else {
-	window.location.href = "lib/index.html";
+	window.location.replace("lib/index.html");
 }
