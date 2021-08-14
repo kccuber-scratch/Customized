@@ -3,7 +3,8 @@ function setOption(id, valueToSelect) {
     let element = document.getElementById(id);
     element.value = valueToSelect;
 }
-if (document.cookie.includes("darkmode=true")) setOption("dark", "true");
+if (document.cookie.includes("themes=scratch")) setOption("dark", "scratch");
+if (document.cookie.includes("themes=dark")) setOption("dark", "dark");
 if (document.cookie.includes("bigger=true")) setOption("bigger", "true");
 if (document.cookie.includes("swatches=true")) setOption("swatches", "true");
 if (document.cookie.includes("swatches=experimental")) setOption("swatches", "experimental");
