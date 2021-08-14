@@ -1,0 +1,22 @@
+name: Mark stale issues and pull requests
+
+on:
+  schedule:
+  - cron: '45 17 * * *'
+
+jobs:
+  stale:
+
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+    - uses: actions/stale@v3
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        stale-issue-message: 'Seems like this issue is pretty inactive. Please try to focus on this!'
+        stale-pr-message: 'Seems like this pull request is pretty inactive. Please try to focus on this!'
+        stale-issue-label: ''
+        stale-pr-label: ''
