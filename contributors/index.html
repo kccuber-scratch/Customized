@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="preconnect" href="https://api.github.com/repos/CodeGuy92/Customized/contributors" crossorigin>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<center>
+	<div class="option">
+		<h2>Customized Developers</h2>
+	</div>
+  <div id="contgrid">
+  </div>
+	<div class="option">
+		<button onclick="window.location.replace('../index.html')">Ok</button>
+	</div>
+</center>
+<script>
+fetch('https://api.github.com/repos/CodeGuy92/Customized/contributors')
+	.then(response => response.json())
+	.then(data => contr(data))
+
+function contr(id1) {
+for(var item in id1) {
+document.getElementById("contgrid").insertAdjacentHTML("beforeEnd", `<div class="option"><b>` + id1[item].login + "</b> with " + id1[item].contributions + " contributions made to the repo." + `</div>`);
+}
+}
+</script>
+</body>
+</html>
