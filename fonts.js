@@ -8,5 +8,6 @@ if (document.cookie.includes("bigger=true")) {
 document.getElementsByClassName("font-dropdown_comfortaa")[0].parentElement.remove()
 document.getElementsByClassName("font-dropdown_comic")[0].parentElement.remove()
 document.getElementsByClassName("font-dropdown_inter")[0].parentElement.remove()
+document.getElementsByClassName("font-dropdown_manrope")[0].parentElement.remove()
   }, 10)
 }
