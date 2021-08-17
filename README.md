@@ -15,6 +15,7 @@ This addon lets you fairly select your most favorite theme, either Dark, Light, 
 
 ### Swatches
 This will essentially add pre-selected colors to your color picker, so it is fairly more easier to color your art & costumes!
+There's also an experimental mode, if no colors currently match your needs.
 ![image](https://user-images.githubusercontent.com/79767244/129750670-0299e325-a372-4dec-ae16-e6ec22dfc41d.png)
 
 ### Larger page scaling
