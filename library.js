@@ -1,5 +1,10 @@
 const libraryContainer = document.getElementById("library");
 
+let load = function(costume) {
+	paintEditor(costume);
+	document.getElementById("library-container").remove();
+}
+
 let addCostume = function(id) {
 	if (costumeLibrary[id].hidden) return; //Hide hidden items
 	//Create
@@ -12,7 +17,7 @@ let addCostume = function(id) {
 	//Costume ID
 	costume.dataset.costume = id;
 	//Function
-	costume.onclick = function(){window.location.replace('../index.html?lib='+this.dataset.costume)};
+	costume.onclick = function(){load(costumeLibrary[this.dataset.costume].costume)};
 	//Content
 	costumeInner.textContent = costumeLibrary[id].name;
 	//Append

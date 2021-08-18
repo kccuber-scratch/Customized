@@ -1,42 +1,16 @@
-if (document.cookie.includes("themes=dark")) {
-window.onload = function() {
-document.body.style.backgroundColor = "#171717";
-document.body.style.color = "white";
-document.getElementsByClassName("dropdown_dropdown_2cQyf")[0].style.borderColor = "#404040";
-};
+function themes() {
+	if (document.cookie.includes("themes=dark")) {
+		document.body.style.backgroundColor = "#171717";
+		document.body.style.color = "white";
+		document.querySelectorAll("img").forEach((e)=>e.style.filter="brightness(5)")
+	};
+	if (document.cookie.includes("themes=scratch")) {
+		document.body.style.backgroundColor = "#4d97ff";
+		document.body.style.color = "white";
 
-setTimeout(function(){
-var els = document.getElementsByTagName("img");
-for(var i = 0; i < els.length; i++)
-{
-  els[i].style.filter = "brightness(5)";
-}
-}, 500)
-}
+		document.querySelectorAll("img").forEach((e)=>e.style.filter="brightness(5)")
+		document.querySelectorAll("button").forEach((e)=>{e.style.backgroundColor = "white";e.style.color = "black"})
 
-if (document.cookie.includes("themes=scratch")) {
-window.onload = function() {
-document.body.style.backgroundColor = "#4d97ff";
-document.body.style.color = "white";
-
-setTimeout(function(){
-var els = document.getElementsByTagName("img");
-for(var i = 0; i < els.length; i++)
-{
-  els[i].style.filter = "brightness(5)";
+		document.getElementsByClassName("paint-editor_bitmap-button_GsX3L")[0].style.border = "2px solid white";
+	}
 }
-}, 500)
-
-setTimeout(function(){
-var els = document.getElementsByTagName("button");
-for(var i = 0; i < els.length; i++)
-{
-  els[i].style.backgroundColor = "white";
-  els[i].style.color = "black";
-}
-}, 500)
-
-var els = document.getElementsByClassName("paint-editor_bitmap-button_GsX3L")[0];
-els.style.border = "2px solid white";
-}
-} 

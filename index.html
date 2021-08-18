@@ -20,13 +20,14 @@
 		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
 
 		<!-- Styling ;) -->
 		<link rel="stylesheet" href="new.css" />
 		<link rel="stylesheet" href="modal.css" />
+		<link rel="stylesheet" href="library.css" />
 	</head>
 	<body>
 		<!-- The Modal -->
@@ -39,16 +40,29 @@
 			<p>Thank you for using our paint editor. If you used a pre-made asset from the library, please remember to give credit to our website :)</p>
 			</div>
 		</div>
-
-		<script type="text/javascript" src="costumes.js"></script>
-		<script type="text/javascript" src="lib.js"></script>
-		<script type="text/javascript" src="playground.js"></script>
+		
+		<!-- Library -->
+		<div id="library-container">
+			<center>
+				<font size="7">Choose an option...</font>
+				<div id="library"></div>
+				<div style="padding: 20px;background-color:#4d97ff;position: absolute;bottom: 0;left: 0;right: 0;">
+					<span id="creditinfo" style="margin-bottom: 10px;position: absolute;bottom: 0;left: 0;right: 0;font-size:20px;">If you use any pre-made assets on Scratch (or another public site), please remember to give credit to our website :)</span>
+				</div>
+			</center>
+		</div>
+		<!-- Addons -->
+		<script type="text/javascript" src="swatches.js"></script>
 		<script type="text/javascript" src="themes.js"></script>
 		<script type="text/javascript" src="bigger-icons.js"></script>
-		<script type="text/javascript" src="swatches.js"></script>
-		<script type="text/javascript" src="upload-download.js"></script>
-		<script type="text/javascript" src="settings.js"></script>
 		<script type="text/javascript" src="bigger.js"></script>
+		
+		<!-- Library functions -->
+		<script type="text/javascript" src="costumes.js"></script>
+		<script type="text/javascript" src="library.js"></script>
+		
+		<!-- Paint editor -->
+		<script type="text/javascript" src="playground.js"></script>
 		<script type="text/javascript" src="modal.js"></script>
 	</body>
 </html>

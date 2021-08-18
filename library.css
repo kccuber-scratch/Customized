@@ -1,7 +1,11 @@
+#library-container {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background-color: #4d97ff;
+	color: #fcfcfc;
+	height: 100vh;
+}
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #4d97ff;
-  color: #fcfcfc;
+	margin: 0px;
 }
 
 .library-item_library-item_1DcMO:hover {
