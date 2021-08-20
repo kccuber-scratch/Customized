@@ -10,4 +10,4 @@ if (document.cookie.includes("swatches=true")) setOption("swatches", "true");
 if (document.cookie.includes("swatches=experimental")) setOption("swatches", "experimental");
 if (document.cookie.includes("icons=true")) setOption("icons", "true");
 if (document.cookie.includes("fonts=true")) setOption("fonts", "true");
-if (document.cookie.includes("customfonts=true")) setOption("customfonts", "true");
+if (document.cookie.includes("customfnts=true")) setOption("customfnts", "true");
