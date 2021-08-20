@@ -8,6 +8,7 @@ function change() {
 	document.cookie = "bigger=" + document.getElementById("bigger").value + ";expires=Fri, 31 Dec 9999 23:59:59 GMT;path=/"
 
 	document.cookie = "fonts=" + document.getElementById("fonts").value + ";expires=Fri, 31 Dec 9999 23:59:59 GMT;path=/"
+	document.cookie = "customfonts=" + document.getElementById("customfonts").value + ";expires=Fri, 31 Dec 9999 23:59:59 GMT;path=/"
 }
 
 function save() {
