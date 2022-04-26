@@ -1,4 +1,6 @@
 # Customized
+Customized was originally created by @lankybox02. This is a continuation of the original project.
+
 Customized is a Scratch 3.0 Paint Editor Modification with lots of useful options and amazing features, just for you!
 
 Customized particularly specializes in making your costume-creating experience for all intents and purposes a lot better, demonstrating how easy & simple it is to create a costume with this tool.
